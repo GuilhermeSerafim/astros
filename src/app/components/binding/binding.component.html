@@ -1,18 +1,73 @@
 <div class="binding-container">
     <div class="stars"></div>
+    @if(!maquinaEquipada) {
     <div class="content">
-        <h1>🚀 Comandante, qual o nome da sua nave?</h1>
+        <h1>Comandante, qual o nome da sua nave?</h1>
         <!-- Two way data binding -->
         <input type="text" [(ngModel)]="shipName" placeholder="Digite o nome da nave" />
         @if(shipName) {
         <p>
-            Preparando decolagem da
-            <strong>{{ shipName }}</strong>… 🪐
+            Equipe à
+            <strong>{{ shipName }}</strong> 🚀
         </p>
-        <button mat-raised-button color="primary" (click)="iniciarDecolagem(3)">Decolar!!!</button>
+        <button mat-raised-button color="primary" (click)="equiparMaquina()">Equipar</button>
 
         }
     </div>
-</div>
+    } @else {
+    <div class="content">
+        <h1>Digite a cor da {{shipName}}</h1>
+        <input type="text" [(ngModel)]="cor" /><br>
+        <button mat-raised-button color="accent" (click)="selecionarCor()" [style.marginTop]="'20px'">Criar
+            foguete</button>
+        @if(corSelecionada) {
+        <div class="rocket-container">
+            <svg class="rocket" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <!-- Sombra -->
+                    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
+                        <feOffset dx="0" dy="4" result="offsetblur" />
+                        <feMerge>
+                            <feMergeNode />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                    <!-- Gradiente do corpo -->
+                    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" [attr.stop-color]=cor />
+                        <stop offset="100%" [attr.stop-color]=cor [attr.stop-opacity]="0.1" />
+                    </linearGradient>
+                    <!-- Gradiente da janela -->
+                    <radialGradient id="windowGrad" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%"  [attr.stop-color]="cor" />
+                        <stop offset="100%" [attr.stop-opacity]="0.1"/>
+                    </radialGradient>
+                    <!-- Gradiente da chama -->
+                    <linearGradient id="flameGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                        <stop offset="0%" stop-color="#ffd54f" />
+                        <stop offset="50%" stop-color="#ff8f00" />
+                        <stop offset="100%" stop-color="#d84315" />
+                    </linearGradient>
+                </defs>
 
-<h1>Teste</h1>
+                <g filter="url(#dropShadow)">
+                    <!-- Corpo -->
+                    <path class="body" d="M100,10 L140,160 A40,40 0 0,1 60,160 Z" />
+
+                    <!-- Janela -->
+                    <circle [style.stroke]="cor" class="window" cx="100" cy="90" r="25" />
+
+                    <!-- Aletas -->
+                    <path class="fin left" [style.fill]="cor" d="M60,160 L20,220 L80,200 Z" />
+                    <path class="fin right" [style.fill]="cor"  d="M140,160 L180,220 L120,200 Z" />
+
+                    <!-- Chama animada -->
+                    <path class="flame" d="M85,160 C90,220 110,220 115,160 Z" />
+                </g>
+            </svg>
+        </div>
+        }
+    </div>
+    }
+</div>
