@@ -1,22 +1,20 @@
 import { Component } from '@angular/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
-import { trigger, transition, style, animate } from '@angular/animations';
-
 
 @Component({
   selector: 'app-binding',
-  imports: [FormsModule],
+  imports: [FormsModule, MatInputModule, MatButtonModule],
   templateUrl: './binding.component.html',
   styleUrl: './binding.component.scss',
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(-20px)' }),
-        animate('600ms ease-out', style({ opacity: 1, transform: 'translateY(0)' })),
-      ])
-    ])
-  ]
 })
 export class BindingComponent {
+  private timerId!: number;
+  count = 0;
+
   shipName = '';
+  iniciarDecolagem(arg0: number) {
+    this.count = arg0;
+  }
 }

@@ -1,13 +1,18 @@
 <div class="binding-container">
     <div class="stars"></div>
-    <div class="content" [@fadeIn]>
+    <div class="content">
         <h1>🚀 Comandante, qual o nome da sua nave?</h1>
+        <!-- Two way data binding -->
         <input type="text" [(ngModel)]="shipName" placeholder="Digite o nome da nave" />
         @if(shipName) {
         <p>
             Preparando decolagem da
             <strong>{{ shipName }}</strong>… 🪐
         </p>
+        <button mat-raised-button color="primary" (click)="iniciarDecolagem(3)">Decolar!!!</button>
+
         }
     </div>
 </div>
+
+<h1>Teste</h1>
