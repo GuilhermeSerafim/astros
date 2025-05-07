@@ -1,0 +1,13 @@
+<div class="binding-container">
+    <div class="stars"></div>
+    <div class="content" [@fadeIn]>
+        <h1>🚀 Comandante, qual o nome da sua nave?</h1>
+        <input type="text" [(ngModel)]="shipName" placeholder="Digite o nome da nave" />
+        @if(shipName) {
+        <p>
+            Preparando decolagem da
+            <strong>{{ shipName }}</strong>… 🪐
+        </p>
+        }
+    </div>
+</div>
