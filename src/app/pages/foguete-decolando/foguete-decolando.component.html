@@ -2,7 +2,8 @@
     <div class="stars"></div>
     @if(!showSocial) {
     <div class="content__text">
-        <h1>Decolando...</h1>
+        <h1>Decolando para {{ '' | randomPlanet}}</h1>
+
     </div>
     <app-foguete (animationend)="onLaunchEnd()" [color]="rocket.color" class="launch-rocket">
     </app-foguete>

@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { FogueteComponent } from '../../components/foguete/foguete.component';
 import { RouterModule } from '@angular/router';
 import { MatButton } from '@angular/material/button';
+import { RandomPlanetPipe } from '../../pipes/random-planet.pipe';
 
 @Component({
   selector: 'app-foguete-decolando',
-  imports: [RouterModule, FogueteComponent, MatButton],
+  imports: [RouterModule, FogueteComponent, MatButton, RandomPlanetPipe],
   templateUrl: './foguete-decolando.component.html',
   styleUrl: './foguete-decolando.component.scss'
 })
@@ -14,8 +15,8 @@ export class FogueteDecolandoComponent {
   showSocial = false;
 
   onLaunchEnd() {
-    // Assim que acabar a animação, as redes são exibidas
-    setTimeout(() => this.showSocial = true);
+    // Para ler o destino e a descrição do Pipe
+    setTimeout(() => this.showSocial = true, 3000);
   }
   oppenLinkedin() {
     window.open('https://www.linkedin.com/in/guilherme-da-silva-serafim/', '_blank');

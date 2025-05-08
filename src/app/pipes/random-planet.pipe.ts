@@ -22,7 +22,7 @@ export class RandomPlanetPipe implements PipeTransform {
     8: { name: 'Netuno',    description: 'O mais distante dos oito clássicos.' }
   };
 
-  transform(): string {
+  transform(_value: any): string {
     const total = Object.keys(this.planets).length;
     const randIndex = Math.floor(Math.random() * total) + 1;
     const planet = this.planets[randIndex];
