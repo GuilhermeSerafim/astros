@@ -1,5 +1,7 @@
-<div class="binding-container">
-    <div class="stars"></div>
+<div class="container">
+    <app-stars />
+
+    <p>criacao-foguete works!</p>
     @if(!nomeEstaAdicionado) {
     <div class="content">
         <h1>Comandante, qual o nome da sua nave?</h1>
@@ -8,7 +10,7 @@
         @if(newName.length > 0) {
 
         <p>
-            Customize 
+            Customize
             <strong>{{ newName }}</strong> 🚀
         </p>
         <button mat-raised-button color="primary" (click)="adicionarNome()">CUSTOMIZAR</button>
@@ -21,7 +23,8 @@
     <div class="content">
         <h1>Digite a cor da {{newName}}</h1>
         <input type="text" [(ngModel)]="newColor" /><br>
-        <button mat-raised-button color="accent" (click)="adicionarCor()" [style.marginTop]="'20px'">CRIAR FOGUETE</button>
+        <button mat-raised-button color="accent" (click)="adicionarCor()" [style.marginTop]="'20px'">CRIAR
+            FOGUETE</button>
     </div>
     }
     @else {
@@ -31,7 +34,7 @@
         <button mat-raised-button color="primary" (click)="criarOutroFoguete()"
             [style.margin]="'20px 20px 0px 0px'">CRIAR OUTRO</button>
         <button mat-raised-button color="accent" (click)="listarFoguetes()" [style.marginTop]="'20px'">LISTAR</button>
-        <app-foguete [color]="newColor"/>
+        <app-foguete [color]="newColor" />
     </div>
     }
 </div>

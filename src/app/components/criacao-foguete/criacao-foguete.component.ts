@@ -1,9 +1,11 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
-import { FogueteComponent } from "../foguete/foguete.component";
+import { FogueteComponent } from '../foguete/foguete.component';
+import { StarsComponent } from "../stars/stars.component";
+
 
 interface Rocket {
   id: number;      // por ex. índice ou um UUID
@@ -12,12 +14,13 @@ interface Rocket {
 }
 
 @Component({
-  selector: 'app-binding',
-  imports: [FormsModule, MatInputModule, MatButtonModule, FogueteComponent],
-  templateUrl: './binding.component.html',
-  styleUrl: './binding.component.scss',
+  selector: 'app-criacao-foguete',
+  imports: [FormsModule, MatInputModule, MatButtonModule, FogueteComponent, StarsComponent],
+  templateUrl: './criacao-foguete.component.html',
+  styleUrl: './criacao-foguete.component.scss'
 })
-export class BindingComponent {
+export class CriacaoFogueteComponent {
+
   constructor(private router: Router) { }
   newColor = '';
   newName = '';

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { StarsComponent } from "../../components/stars/stars.component";
+import { CriacaoFogueteComponent } from "../../components/criacao-foguete/criacao-foguete.component";
 
 @Component({
   selector: 'app-home',
-  imports: [StarsComponent],
+  imports: [CriacaoFogueteComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
