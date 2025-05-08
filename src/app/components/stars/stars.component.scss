@@ -1,0 +1,22 @@
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/stars.png') repeat;
+    animation: moveStars 600s linear infinite;
+    opacity: 0.7;
+    z-index: 0;
+}
+
+@keyframes moveStars {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -10000px 5000px;
+    }
+}
