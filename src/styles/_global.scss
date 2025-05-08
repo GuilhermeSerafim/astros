@@ -18,3 +18,8 @@ p {
     font-style: normal;
     font-size: 14px;
 }
+
+.mdc-button__label {
+    font-family: var(--font-body);
+    font-weight: 700;
+}

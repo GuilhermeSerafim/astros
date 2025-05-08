@@ -11,7 +11,7 @@
             Customize 
             <strong>{{ newName }}</strong> 🚀
         </p>
-        <button mat-raised-button color="primary" (click)="adicionarNome()">Customizar</button>
+        <button mat-raised-button color="primary" (click)="adicionarNome()">CUSTOMIZAR</button>
         }
 
     </div>
@@ -21,8 +21,7 @@
     <div class="content">
         <h1>Digite a cor da {{newName}}</h1>
         <input type="text" [(ngModel)]="newColor" /><br>
-        <button mat-raised-button color="accent" (click)="adicionarCor()" [style.marginTop]="'20px'">Criar
-            foguete</button>
+        <button mat-raised-button color="accent" (click)="adicionarCor()" [style.marginTop]="'20px'">CRIAR FOGUETE</button>
     </div>
     }
     @else {
@@ -30,9 +29,8 @@
         <h1 color="accent">Foguete criado!</h1>
 
         <button mat-raised-button color="primary" (click)="criarOutroFoguete()"
-            [style.margin]="'20px 20px 0px 0px'">Criar
-            Outro</button>
-        <button mat-raised-button color="accent" (click)="listarFoguetes()" [style.marginTop]="'20px'">Listar</button>
+            [style.margin]="'20px 20px 0px 0px'">CRIAR OUTRO</button>
+        <button mat-raised-button color="accent" (click)="listarFoguetes()" [style.marginTop]="'20px'">LISTAR</button>
         <app-foguete [color]="newColor"/>
     </div>
     }

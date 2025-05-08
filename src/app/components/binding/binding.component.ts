@@ -27,16 +27,17 @@ export class BindingComponent {
 
 
   adicionarNome() {
-    console.log(this.newName);
     this.nomeEstaAdicionado = true;
   }
   adicionarCor() {
-    this.corEstaAdicionada = true;
-    this.rockets.push({
-      id: this.rockets.length + 1,
-      name: this.newName.trim(),
-      color: this.newColor,
-    });
+    if (!(this.newColor.trim() === "")) {
+      this.corEstaAdicionada = true;
+      this.rockets.push({
+        id: this.rockets.length + 1,
+        name: this.newName.trim(),
+        color: this.newColor,
+      });
+    }
   }
 
   criarOutroFoguete() {
@@ -48,6 +49,8 @@ export class BindingComponent {
   }
 
   listarFoguetes() {
-    this.router.navigate(['/listaFoguetes'], { state: { data: this.rockets } });
+    if (this.rockets.length > 0) {
+      this.router.navigate(['/listaFoguetes'], { state: { data: this.rockets } });
+    }
   }
 }

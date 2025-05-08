@@ -1,58 +1,101 @@
+.rocket {
+  width: 180px;
+  animation: float 3s ease-in-out infinite;
 
-.rocket-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    margin-top: 30px;
-    overflow: hidden;
+  &--highlighted {
+    transform: scale(1.1); // aumenta 10%
+    filter: drop-shadow(0 0 10px #4fc3f7) // aura azulada
+      drop-shadow(0 0 20px #4fc3f7);
+
+    .body {
+      stroke: #4fc3f7 !important; // muda a cor da borda do corpo
+    }
+
+    .fin {
+      stroke: #4fc3f7 !important; // muda a cor das aletas
+      fill: rgba(79, 195, 247, 0.2); // leve preenchimento azul
+    }
+
+    .window {
+      stroke: #80deea !important; // contorno da janela
+      fill: url(#windowGrad) !important; // mantém o gradiente ou você pode trocar
+    }
   }
-  
-  .rocket {
-    width: 180px;
-    animation: float 3s ease-in-out infinite;
+}
+
+.body {
+  stroke: #444;
+  stroke-width: 3;
+}
+
+.window {
+  fill: url(#windowGrad);
+  stroke: #444;
+  stroke-width: 4;
+}
+
+.fin {
+  stroke-width: 2;
+  transition: transform 0.3s;
+}
+
+.fin.left {
+  transform-origin: 60px 160px;
+}
+
+.fin.right {
+  transform-origin: 140px 160px;
+}
+
+.flame {
+  fill: url(#flameGrad);
+  opacity: 0.9;
+  animation: flicker 0.15s infinite, thrust 1s ease-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  
-  .body {
-    stroke: #444;
-    stroke-width: 3;
+
+  50% {
+    transform: translateY(-15px);
   }
-  
-  .window {
-    fill: url(#windowGrad);
-    stroke: #444;
-    stroke-width: 4;
-  }
-  
-  .fin {
-    stroke-width: 2;
-    transition: transform 0.3s;
-  }
-  .fin.left  { transform-origin: 60px 160px; }
-  .fin.right { transform-origin: 140px 160px; }
-  
-  .flame {
-    fill: url(#flameGrad);
+}
+
+@keyframes flicker {
+
+  0%,
+  100% {
     opacity: 0.9;
-    animation: flicker 0.15s infinite, thrust 1s ease-out infinite;
   }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0);    }
-    50%      { transform: translateY(-15px); }
+
+  50% {
+    opacity: 0.6;
   }
-  
-  @keyframes flicker {
-    0%, 100% { opacity: 0.9; }
-    50%      { opacity: 0.6; }
+}
+
+@keyframes thrust {
+  0% {
+    transform: scaleY(1);
   }
-  
-  @keyframes thrust {
-    0%   { transform: scaleY(1);    }
-    50%  { transform: scaleY(1.2);  }
-    100% { transform: scaleY(1);    }
+
+  50% {
+    transform: scaleY(1.2);
   }
-  
-  /* Efeito hover nas aletas */
-  .rocket:hover .fin.left  { transform: rotate(-5deg); }
-  .rocket:hover .fin.right { transform: rotate(5deg);  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+/* Efeito hover nas aletas */
+.rocket:hover .fin.left {
+  transform: rotate(-5deg);
+}
+
+.rocket:hover .fin.right {
+  transform: rotate(5deg);
+}

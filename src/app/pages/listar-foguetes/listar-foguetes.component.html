@@ -3,9 +3,18 @@
     <div class="content">
         <h1>Escolha um foguete para decolar</h1>
         <div class="container-rockets">
-            @for (item of listRockets; track $index) {
-            <app-foguete [color]="item.color" />
+            @for (item of listRockets; track $index; let i = $index) {
+            <div>
+                <h1>{{item.name}}</h1>
+                <app-foguete [color]="item.color" [rocketIndex]="i" (onRocketSelectEmiit)="selectedRocket(i)"
+                    [isSelected]="indexRocket === i" />
+                @if(!(indexRocket === -1) && i === indexRocket) {
+                <button mat-raised-button color="accent" [style.marginTop]="'20px'">DECOLAR</button>
+                }
+            </div>
             }
         </div>
+        <!-- Diferente do index inicial -->
+
     </div>
 </div>
