@@ -1,0 +1,46 @@
+<div class="launch-container">
+    <div class="stars"></div>
+    @if(!showSocial) {
+    <div class="content__text">
+        <h1>Decolando...</h1>
+    </div>
+    <app-foguete (animationend)="onLaunchEnd()" [color]="rocket.color" class="launch-rocket">
+    </app-foguete>
+
+    } @else {
+
+    <!-- bloco de redes sociais -->
+    <div class="social-container content__text">
+
+        <h1>Missão Concluída, Comandante!</h1>
+        <p>
+            Muito obrigado por acompanhar este voo espacial.
+            Este “Challenger” foi criado para exercitar meus conhecimentos em
+            Angular, inspirando-me no curso
+            <a href="https://www.udemy.com/course/super-treinamento-de-angular-16-do-basico-ao-avancado/"
+                target="_blank" rel="noopener" [style.color]="'#673ab7'">
+                Super Treinamento de Angular 16
+            </a>
+            da Udemy.
+        </p>
+        <ul>
+            <li>
+                <button mat-raised-button color="accent" (click)="oppenInstagram()" [style.marginTop]="'20px'">
+                    🌐 Instagram
+                </button>
+
+            </li>
+            <li>
+                <button mat-raised-button color="accent" (click)="oppenLinkedin()" [style.marginTop]="'20px'">
+                    💼  LinkedIn
+                </button>
+            </li>
+            <li>
+                <button mat-raised-button color="accent" (click)="oppenGithub()" [style.marginTop]="'20px'">
+                    🛠️ GitHub
+                </button>
+            </li>
+        </ul>
+    </div>
+    }
+</div>
