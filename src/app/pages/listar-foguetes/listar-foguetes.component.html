@@ -1,0 +1,7 @@
+<div class="binding-container">
+    <div class="stars"></div>
+    @for(rocket of listRockets; track rocket.id) {
+    <h1>{{rocket.name}}</h1>
+    <app-foguete [color]="rocket.color"/>
+    }
+</div>

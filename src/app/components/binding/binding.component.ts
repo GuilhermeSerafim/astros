@@ -1,32 +1,53 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FogueteComponent } from "../foguete/foguete.component";
 
-
+interface Rocket {
+  id: number;      // por ex. índice ou um UUID
+  name: string,
+  color: string
+}
 
 @Component({
   selector: 'app-binding',
-  imports: [FormsModule, MatInputModule, MatButtonModule],
+  imports: [FormsModule, MatInputModule, MatButtonModule, FogueteComponent],
   templateUrl: './binding.component.html',
   styleUrl: './binding.component.scss',
 })
 export class BindingComponent {
-  maquinaEquipada = false;
-  corSelecionada = false;
-  cor?: string;
-  equiparMaquina() {
-    this.maquinaEquipada = true;
+  constructor(private router: Router) { }
+  newColor = '';
+  newName = '';
+  nomeEstaAdicionado = false;
+  corEstaAdicionada = false;
+  rockets: Rocket[] = [];
+
+
+  adicionarNome() {
+    console.log(this.newName);
+    this.nomeEstaAdicionado = true;
+  }
+  adicionarCor() {
+    this.corEstaAdicionada = true;
+    this.rockets.push({
+      id: this.rockets.length + 1,
+      name: this.newName.trim(),
+      color: this.newColor,
+    });
   }
 
-  private timerId!: number;
-  count = 0;
-
-  shipName = '';
-  iniciarDecolagem(arg0: number) {
-    this.count = arg0;
+  criarOutroFoguete() {
+    this.newName = "";
+    this.newColor = "";
+    this.corEstaAdicionada = false;
+    this.nomeEstaAdicionado = false;
+    console.log(this.rockets);
   }
-  selecionarCor() {
-    this.corSelecionada = true;
+
+  listarFoguetes() {
+    this.router.navigate(['/listaFoguetes'], { state: { data: this.rockets } });
   }
 }
