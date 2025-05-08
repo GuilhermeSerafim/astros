@@ -14,14 +14,14 @@
   }
   
   .body {
-    fill: url(#bodyGrad);
     stroke: #444;
     stroke-width: 3;
   }
   
   .window {
     fill: url(#windowGrad);
-    stroke-width: 2;
+    stroke: #444;
+    stroke-width: 4;
   }
   
   .fin {

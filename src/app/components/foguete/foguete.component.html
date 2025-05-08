@@ -30,10 +30,10 @@
 
         <g filter="url(#dropShadow)">
             <!-- Corpo -->
-            <path class="body" d="M100,10 L140,160 A40,40 0 0,1 60,160 Z" />
+            <path [style.fill]="color" class="body" d="M100,10 L140,160 A40,40 0 0,1 60,160 Z" />
 
             <!-- Janela -->
-            <circle [style.stroke]="color" class="window" cx="100" cy="90" r="25" />
+            <circle  [style.fill]="color" class="window" cx="100" cy="90" r="25" />
 
             <!-- Aletas -->
             <path class="fin left" [style.fill]="color" d="M60,160 L20,220 L80,200 Z" />

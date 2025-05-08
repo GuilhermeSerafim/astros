@@ -1,7 +1,11 @@
 <div class="binding-container">
     <div class="stars"></div>
-    @for(rocket of listRockets; track rocket.id) {
-    <h1>{{rocket.name}}</h1>
-    <app-foguete [color]="rocket.color"/>
-    }
+    <div class="content">
+        <h1>Escolha um foguete para decolar</h1>
+        <div class="container-rockets">
+            @for (item of listRockets; track $index) {
+            <app-foguete [color]="item.color" />
+            }
+        </div>
+    </div>
 </div>

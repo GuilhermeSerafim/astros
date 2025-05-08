@@ -24,9 +24,35 @@
         text-align: center;
         margin-top: 20vh;
         padding: 0 1rem;
+
+
+
+        input {
+            width: 80%;
+            max-width: 400px;
+            padding: 0.75rem 1rem;
+            font-size: 1.1rem;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            outline: none;
+        }
+
+        p {
+            margin-top: 1.5rem;
+            font-size: 1.5rem;
+
+            strong {
+                color: #ffeb3b;
+            }
+        }
+        h1 {
+            font-size: 2rem;
+            font-family: var(--font-heading);
+        }
     }
 }
-
 
 @keyframes moveStars {
     from {
@@ -36,4 +62,10 @@
     to {
         background-position: -10000px 5000px;
     }
+}
+
+
+.container-rockets {
+    display: flex;
+    justify-content: space-evenly;
 }

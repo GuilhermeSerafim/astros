@@ -9,7 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './listar-foguetes.component.scss'
 })
 export class ListarFoguetesComponent {
-  cor = ""
   listRockets!: any;
 
   ngOnInit() {
