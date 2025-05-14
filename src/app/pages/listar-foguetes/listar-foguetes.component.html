@@ -9,7 +9,7 @@
                 <app-foguete [color]="item.color" [rocketIndex]="i" (onRocketSelectEmiit)="selectedRocket(i)"
                     [isSelected]="indexRocket === i" />
                 @if(!(indexRocket === -1) && i === indexRocket) {
-                <button mat-raised-button color="accent" [style.marginTop]="'20px'" (click)="decolar()">DECOLAR</button>
+                <button mat-raised-button color="accent"  (click)="decolar()">DECOLAR</button>
                 }
             </div>
             }
