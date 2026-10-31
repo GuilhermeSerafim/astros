@@ -18,8 +18,8 @@ Demo online em: [https://astros-one.vercel.app](https://astros-one.vercel.app)
 1. Clone este repositório:
 
    ```bash
-   git clone <repo-url>
-   cd challenger
+   git clone https://github.com/GuilhermeSerafim/astros.git
+   cd astros
    ```
 2. Instale as dependências:
 
@@ -29,7 +29,7 @@ Demo online em: [https://astros-one.vercel.app](https://astros-one.vercel.app)
 3. Rode localmente:
 
    ```bash
-   ng serve
+   npm start
    ```
 4. Acesse `http://localhost:4200` no navegador.
 
@@ -37,3 +37,5 @@ Demo online em: [https://astros-one.vercel.app](https://astros-one.vercel.app)
 
 Desenvolvido por Guilherme Serafim
 [GitHub](https://github.com/GuilhermeSerafim) · [LinkedIn](https://www.linkedin.com/in/guilherme-da-silva-serafim/) · [Instagram](https://www.instagram.com/iamguiler/)
+
+> O projeto usa Angular 19; o título do curso acima registra a origem do estudo.
